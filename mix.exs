@@ -29,7 +29,12 @@ defmodule NoSlides.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:riak_core, "~> 2.2.8", hex: :riak_core_ng}
+      {:riak_core, git: "git@github.com:freeakdb/riak_core.git", branch: "riak_core_lighter"},
+       
+      {:lager,  [ git: "git://github.com/erlang-lager/lager", tag: "3.5.2", manager: :rebar3, override: true]},
+      {:cuttlefish,  [ git: "git://github.com/bryanhuntesl/cuttlefish.git", branch: "develop",  override: true]},
+      {:getopt,  [ git: "https://github.com/freeakdb/getopt.git", tag: "rebar3", manager: :rebar, override: true ]}
     ]
+
   end
 end
