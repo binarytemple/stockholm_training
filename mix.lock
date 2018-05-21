@@ -1,4 +1,5 @@
-%{"basho_stats": {:hex, :basho_stats, "1.0.3", "7e1174151509c64fcc1934120ed32295e14f84daae7f84926ba2c8d3700d146c", [:rebar3], [], "hexpm"},
+%{
+  "basho_stats": {:hex, :basho_stats, "1.0.3", "7e1174151509c64fcc1934120ed32295e14f84daae7f84926ba2c8d3700d146c", [:rebar3], [], "hexpm"},
   "bear": {:hex, :bear, "0.8.5", "e95fca1627cd9e15baf93ce0a52aff16917baf325f0ee65b88cd715376cd2344", [], [], "hexpm"},
   "blume": {:hex, :blume, "0.1.0", "62dda46b43e24d4b8d5407b8f6ddb78ebd2a8cdc84d9bc822cddaef6f402f3eb", [:rebar3], []},
   "chash": {:hex, :chash, "0.1.2", "af02484f2640c653c4b9a8557a14ca0704989dbedb27e7ccbc442f1903a3bca7", [:rebar3], []},
@@ -16,7 +17,8 @@
   "parse_trans": {:hex, :parse_trans, "2.9.0", "3f5f7b402928fb9fd200c891e635de909045d1efac40ce3f924d3892898f85eb", [:rebar, :rebar], [{:edown, "> 0.0.0", [hex: :edown, optional: false]}]},
   "pbkdf2": {:hex, :pbkdf2, "2.0.0", "11c23279fded5c0027ab3996cfae77805521d7ef4babde2bd7ec04a9086cf499", [:rebar3], [], "hexpm"},
   "poolboy": {:hex, :basho_poolboy, "0.8.2", "ad5524bf4b8d30eee0e5386847b74dad739bb6ae1893f3af10f54d427acc96e4", [:rebar3], [], "hexpm"},
-  "riak_core": {:git, "git@github.com:marianoguerra/riak_core.git", "5ce029026c074b1f855d2ef6eb3fd08b5572c3bb", [branch: "riak_core_lite"]},
+  "riak_core": {:git, "git@github.com:freeakdb/riak_core.git", "5ce029026c074b1f855d2ef6eb3fd08b5572c3bb", [branch: "riak_core_lite"]},
   "riak_ensemble": {:hex, :riak_ensemble_ng, "2.4.0", "6570463bf09f1200c003de298c5d6615c418d3bf0a2df5caf469a9df2558059a", [], [{:lager, "~>3.2.1", [hex: :lager, repo: "hexpm", optional: false]}], "hexpm"},
   "riak_sysmon": {:hex, :riak_sysmon, "2.1.5", "2331bbcaebe73ea7b2449f4c765827142476cc73d7d86999b4209ee005694d6b", [], [], "hexpm"},
-  "setup": {:hex, :setup, "1.7.0", "15df8e57c6df9755e22bfb1aef0c640bd97e9889396fdfb2a85a5536a9043674", [:rebar3], []}}
+  "setup": {:hex, :setup, "1.7.0", "15df8e57c6df9755e22bfb1aef0c640bd97e9889396fdfb2a85a5536a9043674", [:rebar3], []},
+}
