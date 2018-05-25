@@ -29,11 +29,16 @@ defmodule NoSlides.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:riak_core, git: "git@github.com:freeakdb/riak_core.git", branch: "riak_core_lite"},
+      {:riak_core, git: "git@github.com:marianoguerra/riak_core.git", branch: "riak_core_lite_ng"},
+      {:eleveldb,  [ git: "git@github.com:freeakdb/eleveldb.git", tag: "2.2.20", manager: :rebar3, override: true]},
       {:lager,  [ git: "git://github.com/erlang-lager/lager", tag: "3.5.2", manager: :rebar3, override: true]},
       {:goldrush, "~>0.1.8", [env: :prod, repo: "hexpm", hex: "goldrush", manager: :rebar3, override: true]},
       {:cuttlefish,  [ git: "git://github.com/bryanhuntesl/cuttlefish.git", branch: "develop",  override: true]},
-      {:getopt,  [ git: "https://github.com/freeakdb/getopt.git", tag: "feature/riak-2903/rebar3", manager: :rebar, override: true ]}
+      {:getopt,  [ git: "https://github.com/freeakdb/getopt.git", tag: "r20-rebar3", manager: :rebar, override: true ]},
+      {:gen_fsm_compat,  [ git: "https://github.com/freeakdb/gen_fsm_compat.git", branch: "elixir1.6-r20", manager: :rebar, override: true ]},
+      {:clique,  [ git: "https://github.com/freeakdb/clique.git", branch: "develop-2.2", manager: :rebar, override: true ]},
+      {:riak_sysmon,  [ git: "https://github.com/freeakdb/riak_sysmon.git", branch: "develop-2.2", manager: :rebar, override: true ]},
+      {:riak_ensemble,  [ git: "https://github.com/freeakdb/riak_ensemble.git", branch: "develop-2.2", manager: :rebar, override: true ]},
     ]
   end
 end
