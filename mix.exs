@@ -30,7 +30,9 @@ defmodule NoSlides.Mixfile do
   defp deps do
     [
       {:folsom,  [ git: "git@github.com:freeakdb/folsom.git", tag: "0.8.2p1", manager: :rebar3, override: true]},
-      {:riak_core, git: "git@github.com:freeakdb/riak_core.git", branch: "riak_core_lite_ng"},
+      #{:riak_core, git: "git@github.com:freeakdb/riak_core.git", branch: "riak_core_lite_ng"},
+      {:riak_core, git: "git@github.com:freeakdb/riak_core.git", branch: "riak_core_lite_training_bh"},
+      {:leveled, [ git: "git@github.com:freeakdb/leveled.git", tag: "stockholm_training_bh", manager: :rebar3, override: true]}, 
       {:bear,  [ git: "git@github.com:freeakdb/bear.git", tag: "0.8.2p1-rebar3-otp20", manager: :rebar3, override: true]}, 
       {:eleveldb,  [ git: "git@github.com:freeakdb/eleveldb.git", tag: "2.2.19", manager: :rebar3, override: true]},
       {:lager,  [ git: "git://github.com/erlang-lager/lager", tag: "3.5.2", manager: :rebar3, override: true]},
