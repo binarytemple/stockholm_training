@@ -43,6 +43,7 @@ defmodule Storix.Mixfile do
       {:clique,  [ git: "https://github.com/freeakdb/clique.git", branch: "develop-2.2", manager: :rebar, override: true ]},
       {:riak_sysmon,  [ git: "https://github.com/freeakdb/riak_sysmon.git", branch: "develop-2.2", manager: :rebar, override: true ]},
       {:riak_ensemble,  [ git: "https://github.com/freeakdb/riak_ensemble.git", tag: "2.1.9-rebar3-otp20-elixir-1.6", manager: :rebar, override: true ]},
+      {:logger_lager_backend, "~> 0.1.0"},
       {:distillery, "~>1.5.2"},
     ]
   end

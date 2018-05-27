@@ -9,6 +9,11 @@ config :riak_core,
 config :lager,
   colored: true,
   error_logger_hwm: 5000
+
+config :logger,
+  backends: [LoggerLagerBackend],
+  handle_otp_reports: false,
+  level: :debug
 config :sasl,
   errlog_type: :error
 import_config "#{Mix.env}.exs"
