@@ -30,7 +30,7 @@ environment :dev do
   # dev mode.
   #
   set overlays: [
-    #mkdir: "priv",
+    {:mkdir, "priv"},
     {:copy, "priv/riak_core.schema", "priv/riak_core.schema"}
   ]
   set dev_mode: true
