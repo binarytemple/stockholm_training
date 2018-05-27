@@ -28,6 +28,11 @@ environment :dev do
   # It is recommended that you build with MIX_ENV=prod and pass
   # the --env flag to Distillery explicitly if you want to use
   # dev mode.
+  #
+  set overlays: [
+    #mkdir: "priv",
+    {:copy, "priv/riak_core.schema", "priv/riak_core.schema"}
+  ]
   set dev_mode: true
   set include_erts: false
   set cookie: :"Tl6JH/3yUb)6c=Z{ot(OTK`Q>)_`CPl0f!GKS*AJ,j7NmrB~ggssv5JU2/*&`G3%"
@@ -47,7 +52,8 @@ end
 release :storix do
   set version: current_version(:storix)
   set applications: [
-    :runtime_tools
+    :runtime_tools,
+    :cuttlefish
   ]
 end
 
