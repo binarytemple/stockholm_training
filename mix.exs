@@ -34,6 +34,8 @@ defmodule Storix.Mixfile do
       {:riak_core, git: "git@github.com:freeakdb/riak_core.git", branch: "riak_core_lite_training_bh"},
  #     {:leveled, [ git: "git@github.com:freeakdb/leveled.git", tag: "stockholm_training_bh", manager: :rebar3, override: true]}, 
       {:bear,  [ git: "git@github.com:freeakdb/bear.git", tag: "0.8.2p1-rebar3-otp20", manager: :rebar3, override: true]}, 
+ #     {:leveled, [ git: "git@github.com:freeakdb/leveled.git", tag: "stockholm_training_bh", manager: :rebar3, override: true]},
+      {:bear,  [ git: "git@github.com:freeakdb/bear.git", tag: "0.8.2p1-rebar3-otp20", manager: :rebar3, override: true]},
  #     {:eleveldb,  [ git: "git@github.com:freeakdb/eleveldb.git", tag: "2.2.19", manager: :rebar3, override: true]},
       {:lager,  [ git: "git://github.com/erlang-lager/lager", tag: "3.5.2", manager: :rebar3, override: true]},
       {:goldrush,  [ git: "git@github.com:freeakdb/goldrush.git", tag: "0.1.9",manager: :rebar3,  override: true]},
@@ -45,6 +47,9 @@ defmodule Storix.Mixfile do
       {:riak_ensemble,  [ git: "https://github.com/freeakdb/riak_ensemble.git", tag: "2.1.9-rebar3-otp20-elixir-1.6", manager: :rebar, override: true ]},
       {:logger_lager_backend, "~> 0.1.0"},
       {:distillery, "~>1.5.2"},
+      {:gen_state_machine, "~> 2.0"},
+      {:ace              , "~> 0.16"},
+      {:raxx             , "~> 0.15"}
     ]
   end
 end
