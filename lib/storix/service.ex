@@ -1,57 +1,57 @@
-defmodule NoSlides.Service do
+defmodule Storix.Service do
 
   def ping(v\\1) do
     idx = :riak_core_util.chash_key({"noslides", "ping#{v}"})
-    pref_list = :riak_core_apl.get_primary_apl(idx, 1, NoSlides.Service)
+    pref_list = :riak_core_apl.get_primary_apl(idx, 1, Storix.Service)
 
     [{index_node, _type}] = pref_list
 
-    :riak_core_vnode_master.sync_command(index_node, {:ping, v}, NoSlides.VNode_master)
+    :riak_core_vnode_master.sync_command(index_node, {:ping, v}, Storix.VNode_master)
   end
 
   def ping_spawn(v\\1) do
     idx = :riak_core_util.chash_key({"noslides", "ping#{v}"})
-    pref_list = :riak_core_apl.get_primary_apl(idx, 1, NoSlides.Service)
+    pref_list = :riak_core_apl.get_primary_apl(idx, 1, Storix.Service)
 
     [{index_node, _type}] = pref_list
 
-    :riak_core_vnode_master.sync_spawn_command(index_node, {:ping, v}, NoSlides.VNode_master)
+    :riak_core_vnode_master.sync_spawn_command(index_node, {:ping, v}, Storix.VNode_master)
   end
 
   def async_ping(v\\1) do
     idx = :riak_core_util.chash_key({"noslides", "ping#{v}"})
-    pref_list = :riak_core_apl.get_primary_apl(idx, 1, NoSlides.Service)
+    pref_list = :riak_core_apl.get_primary_apl(idx, 1, Storix.Service)
 
     [{index_node, _type}] = pref_list
 
-    :riak_core_vnode_master.command(index_node, {:ping, v}, NoSlides.VNode_master)
+    :riak_core_vnode_master.command(index_node, {:ping, v}, Storix.VNode_master)
   end
 
   def put(k, v) do
     idx = :riak_core_util.chash_key({"noslides", k})
-    pref_list = :riak_core_apl.get_primary_apl(idx, 1, NoSlides.Service)
+    pref_list = :riak_core_apl.get_primary_apl(idx, 1, Storix.Service)
 
     [{index_node, _type}] = pref_list
 
-    :riak_core_vnode_master.command(index_node, {:put, {k, v}}, NoSlides.VNode_master)
+    :riak_core_vnode_master.command(index_node, {:put, {k, v}}, Storix.VNode_master)
   end
 
   def get(k) do
     idx = :riak_core_util.chash_key({"noslides", k})
-    pref_list = :riak_core_apl.get_primary_apl(idx, 1, NoSlides.Service)
+    pref_list = :riak_core_apl.get_primary_apl(idx, 1, Storix.Service)
 
     [{index_node, _type}] = pref_list
 
-    :riak_core_vnode_master.sync_command(index_node, {:get, {k}}, NoSlides.VNode_master)
+    :riak_core_vnode_master.sync_command(index_node, {:get, {k}}, Storix.VNode_master)
   end
 
   def ft_put(k, v) do
-    {:ok, req_id } = NoSlides.WriteFsm.write(k, v)
+    {:ok, req_id } = Storix.WriteFsm.write(k, v)
     wait_for(req_id)
   end
 
   def ft_get(k) do
-    {:ok, req_id } = NoSlides.GetFsm.get(k)
+    {:ok, req_id } = Storix.GetFsm.get(k)
     wait_for(req_id)
   end
 
@@ -75,12 +75,12 @@ defmodule NoSlides.Service do
   end
 
   def keys do
-    req_id = NoSlides.CoverageFsmSupervisor.start_fsm(:keys)
+    req_id = Storix.CoverageFsmSupervisor.start_fsm(:keys)
     wait_result(req_id)
   end
 
   def values do
-    req_id = NoSlides.CoverageFsmSupervisor.start_fsm(:values)
+    req_id = Storix.CoverageFsmSupervisor.start_fsm(:values)
     wait_result(req_id)
   end
 

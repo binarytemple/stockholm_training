@@ -1,4 +1,4 @@
-defmodule NoSlides.VNode do
+defmodule Storix.VNode do
   require Logger
   @behaviour :riak_core_vnode
 

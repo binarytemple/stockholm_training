@@ -1,6 +1,6 @@
-defmodule NoSlidesTest do
+defmodule StorixTest do
   use ExUnit.Case
-  doctest NoSlides
+  doctest Storix
 
   test "the truth" do
     assert 1 + 1 == 2

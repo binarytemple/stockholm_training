@@ -1,4 +1,4 @@
-defmodule NoSlides.CoverageFsmSupervisor do
+defmodule Storix.CoverageFsmSupervisor do
   use Supervisor
   require Logger
 
@@ -14,7 +14,7 @@ defmodule NoSlides.CoverageFsmSupervisor do
 
   def init(_args) do
     children = [
-      worker(NoSlides.CoverageFsm, [], restart: :temporary)
+      worker(Storix.CoverageFsm, [], restart: :temporary)
     ]
     supervise(children, strategy: :simple_one_for_one, max_restarts: 5, max_seconds: 10)
   end

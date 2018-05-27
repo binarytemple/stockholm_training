@@ -1,4 +1,4 @@
-defmodule NoSlides.WriteFsmSupervisor do
+defmodule Storix.WriteFsmSupervisor do
   use Supervisor
 
   def start_write_fsm(arg) do
@@ -11,7 +11,7 @@ defmodule NoSlides.WriteFsmSupervisor do
 
   def init(arg) do
     children = [
-      worker(NoSlides.WriteFsm, [], restart: :temporary)
+      worker(Storix.WriteFsm, [], restart: :temporary)
     ]
     supervise(children, [strategy: :simple_one_for_one])
   end

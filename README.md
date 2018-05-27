@@ -1,6 +1,6 @@
-# NoSlides example application
+# Storix example application
 
-Example application for the talk at [NoSlidesConf][0]. This application is a sample application with some functionalities available on riak_core.
+Example application for the talk at [StorixConf][0]. This application is a sample application with some functionalities available on riak_core.
 
 **You need to use Elixir 1.3 and Erlang 18.X**. There are some works on [riak_core][1] and [riak_core_ng][2] to move on Erlang 19.X, but when I wrote this docs it's not ready.
 
@@ -70,23 +70,23 @@ iex(gpad_1@127.0.0.1)1> :riak_core_ring.pretty_print(ring, [:legend])
 In this example it's now possible execute a `ping` command with default value of `1` but it's possible pass also a different value to have more chance to change the destination node.
 
 ```elixir
-iex(gpad_1@127.0.0.1)1> NoSlides.Service.ping
-iex(gpad_1@127.0.0.1)1> NoSlides.Service.ping(2)
+iex(gpad_1@127.0.0.1)1> Storix.Service.ping
+iex(gpad_1@127.0.0.1)1> Storix.Service.ping(2)
 #execute a lot of different ping
-(1..20) |> Enum.each(fn v -> NoSlides.Service.ping(v) end)
+(1..20) |> Enum.each(fn v -> Storix.Service.ping(v) end)
 ```
 
 It's also possible use this application as a simple KV memory store, in this way:
 
 ```elixir
 # on node 1
-iex(gpad_1@127.0.0.1)1> NoSlides.Service.put(:key, 42)
+iex(gpad_1@127.0.0.1)1> Storix.Service.put(:key, 42)
 ```
 On node execute the command to store the value `42` associated with key `:key` and, it's possible get this value from another node, in this way:
 
 ```elixir
 # on node 2
-iex(gpad_2@127.0.0.1)1> NoSlides.Service.get(:key)
+iex(gpad_2@127.0.0.1)1> Storix.Service.get(:key)
 ```
 
 Depending on your configuration and how many nodes you are running, you can see some different node that respond to this requests. Try to get value before and after a join and a subsequent leave of a node.

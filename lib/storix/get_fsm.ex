@@ -1,4 +1,4 @@
-defmodule NoSlides.GetFsm do
+defmodule Storix.GetFsm do
   require Logger
 
   @timeout 10_000
@@ -7,7 +7,7 @@ defmodule NoSlides.GetFsm do
 
   def get(k) do
     req_id = mk_reqid()
-    NoSlides.GetFsmSupervisor.start_get_fsm([req_id, self(), k])
+    Storix.GetFsmSupervisor.start_get_fsm([req_id, self(), k])
     {:ok, req_id}
   end
 
@@ -23,7 +23,7 @@ defmodule NoSlides.GetFsm do
   # Get info about on wich nodes write
   def prepare(:timeout, state) do
     idx = :riak_core_util.chash_key({"noslides", state.key})
-    pref_list = :riak_core_apl.get_apl(idx, @n_val, NoSlides.Service)
+    pref_list = :riak_core_apl.get_apl(idx, @n_val, Storix.Service)
 
     {:next_state, :execute, Map.put(state, :pref_list, pref_list), 0}
   end
@@ -34,7 +34,7 @@ defmodule NoSlides.GetFsm do
       state.pref_list,
       {:get, {state.req_id, state.key}},
       {:fsm, :undefined, self()},
-      NoSlides.VNode_master)
+      Storix.VNode_master)
     {:next_state, :consolidate, state, @timeout}
   end
 

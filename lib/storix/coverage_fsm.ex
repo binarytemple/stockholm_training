@@ -1,4 +1,4 @@
-defmodule NoSlides.CoverageFsm do
+defmodule Storix.CoverageFsm do
   require Logger
   @behaviour :riak_core_coverage_fsm
 
@@ -22,8 +22,8 @@ defmodule NoSlides.CoverageFsm do
       :allup,
       @n_val,
       @vnode_coverage,
-      NoSlides.Service,
-      NoSlides.VNode_master,
+      Storix.Service,
+      Storix.VNode_master,
       timeout,
       %{from: from, req_id: req_id, args: args}
     }
