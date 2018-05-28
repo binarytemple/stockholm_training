@@ -9,7 +9,13 @@ defmodule Imageer.Mixfile do
       compilers: [] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+	  # umbrella stuff
+      build_path: "../../_build",
+      config_path: "../../config/config.exs",
+      deps_path: "../../deps",
+      lockfile: "../../mix.lock",
+      deps: deps(),
+
     ]
   end
   def application do
@@ -22,6 +28,9 @@ defmodule Imageer.Mixfile do
   defp elixirc_paths(_), do: ["lib"]
   defp deps do
     [
+{:ace                  , "~> 0.16"  } ,
+      {:raxx                 , "~> 0.15"  } ,
+
     ]
   end
   defp aliases do
