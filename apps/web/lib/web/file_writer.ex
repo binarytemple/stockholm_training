@@ -33,7 +33,7 @@ defmodule Web.FileWriter do
 
   @spec path(name) :: Path.t()
   defp path(name) do
-    Application.fetch_env!(:upload, :uploads_dir)
+    Application.fetch_env!(:web, :uploads_dir)
     |> Path.join(name)
   end
 end

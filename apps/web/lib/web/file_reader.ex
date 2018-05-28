@@ -26,7 +26,7 @@ defmodule Web.FileReader do
 
   @spec read_chunk(t) :: {t, binary()} | :eof
   def read_chunk(handler) do
-    chunk_size = Application.fetch_env!(:upload, :download_chunk_size)
+    chunk_size = Application.fetch_env!(:web, :download_chunk_size)
 
     case IO.binread(handler.file, chunk_size) do
       {:error, _} = err ->
@@ -49,7 +49,7 @@ defmodule Web.FileReader do
 
   @spec path(name) :: Path.t()
   defp path(name) do
-    Application.fetch_env!(:upload, :uploads_dir)
+    Application.fetch_env!(:web, :uploads_dir)
     |> Path.join(name)
   end
 end

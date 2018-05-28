@@ -4,7 +4,7 @@ defmodule Web.Application do
   use Application
 
   def start(_type, _args) do
-    port = Application.fetch_env!(:upload, :port)
+    port = Application.fetch_env!(:web, :port)
 
     children = [
       {Ace.HTTP.Service, [{Web.Router, []}, [port: port, cleartext: true]]}

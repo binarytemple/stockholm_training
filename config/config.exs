@@ -7,4 +7,10 @@ use Mix.Config
 # they all use the same configuration. While one could
 # configure all applications here, we prefer to delegate
 # back to each application for organization purposes.
+
+config :web,
+  port: 8080,
+  uploads_dir: "uploads",
+  download_chunk_size: 5000
+
 import_config "../apps/*/config/config.exs"
