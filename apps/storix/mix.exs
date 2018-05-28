@@ -22,7 +22,7 @@ defmodule Storix.Mixfile do
       {:lager,  [ git: "git://github.com/erlang-lager/lager", tag: "3.5.2", manager: :rebar3, override: true]},
       {:gen_state_machine    , "~> 2.0"   } ,
 
-      {:leveled, [git: "https://github.com/martinsumner/leveled.git", branch: "master"]},
+      #      {:leveled, [git: "https://github.com/martinsumner/leveled.git", branch: "master", runtime: false]},
 
 
       {:folsom,  [ git: "git@github.com:freeakdb/folsom.git", tag: "0.8.2p1", manager: :rebar3, override: true]},
