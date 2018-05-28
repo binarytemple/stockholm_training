@@ -12,8 +12,10 @@ defmodule Storix.Mixfile do
   end
 
   def application do
-    [applications: [:riak_core, :logger ],
-     mod: {Storix, []}]
+    [
+      applications: [:riak_core, :logger],
+      mod: {Storix, [env: Mix.env]}
+    ]
   end
 
   defp deps do

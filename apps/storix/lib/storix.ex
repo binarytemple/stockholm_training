@@ -12,7 +12,6 @@ defmodule Storix do
       {:error, reason} ->
         Logger.error("Unable to start Storix supervisor because: #{inspect reason}")
     end
-
   end
 
 end
