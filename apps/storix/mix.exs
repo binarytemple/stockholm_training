@@ -21,10 +21,6 @@ defmodule Storix.Mixfile do
       {:goldrush, [ git: "git@github.com:freeakdb/goldrush.git", tag: "0.1.9",manager: :rebar3, override: true]},
       {:lager,  [ git: "git://github.com/erlang-lager/lager", tag: "3.5.2", manager: :rebar3, override: true]},
       {:gen_state_machine    , "~> 2.0"   } ,
-
-      #      {:leveled, [git: "https://github.com/martinsumner/leveled.git", branch: "master", runtime: false]},
-
-
       {:folsom,  [ git: "git@github.com:freeakdb/folsom.git", tag: "0.8.2p1", manager: :rebar3, override: true]},
       {:riak_core, git: "git@github.com:freeakdb/riak_core.git", branch: "riak_core_lite_training_bh"},
       {:bear,  [ git: "git@github.com:freeakdb/bear.git", tag: "0.8.2p1-rebar3-otp20", manager: :rebar3, override: true]},
@@ -34,6 +30,6 @@ defmodule Storix.Mixfile do
       {:clique,  [ git: "https://github.com/freeakdb/clique.git", branch: "develop-2.2", manager: :rebar, override: true ]},
       {:riak_sysmon,  [ git: "https://github.com/freeakdb/riak_sysmon.git", branch: "develop-2.2", manager: :rebar, override: true ]},
       {:riak_ensemble,  [ git: "https://github.com/freeakdb/riak_ensemble.git", tag: "2.1.9-rebar3-otp20-elixir-1.6", manager: :rebar, override: true ]},
-         ]
+    ]
   end
 end
