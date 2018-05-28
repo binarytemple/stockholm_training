@@ -19,4 +19,10 @@ config :logger,
 config :sasl,
   errlog_type: :error
 
+
+config :storix,
+  port: 8080,
+  uploads_dir: "uploads",
+  download_chunk_size: 5000
+
 import_config "#{Mix.env}.exs"
