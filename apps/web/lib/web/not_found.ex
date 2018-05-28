@@ -1,4 +1,4 @@
-defmodule Imageer.NotFound do
+defmodule Web.NotFound do
   @moduledoc false
 
   use Raxx.Server

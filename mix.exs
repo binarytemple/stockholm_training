@@ -16,11 +16,11 @@ defmodule Storix.MixProject do
   # Run "mix help deps" for examples and options.
   defp deps do
     [
-      {:goldrush,  [ git: "git@github.com:freeakdb/goldrush.git", tag: "0.1.9",manager: :rebar3,  override: true]},
+      {:goldrush, [ git: "git@github.com:freeakdb/goldrush.git", tag: "0.1.9",manager: :rebar3, override: true]},
       {:lager,  [ git: "git://github.com/erlang-lager/lager", tag: "3.5.2", manager: :rebar3, override: true]},
       {:logger_lager_backend , "~> 0.1.0" } ,
       {:distillery           , "~>1.5.2"  } ,
       {:gen_state_machine    , "~> 2.0"   } ,
-          ]
+    ]
   end
 end

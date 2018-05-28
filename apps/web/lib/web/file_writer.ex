@@ -1,4 +1,4 @@
-defmodule Upload.FileWriter do
+defmodule Web.FileWriter do
   @moduledoc false
 
   defstruct [:file]

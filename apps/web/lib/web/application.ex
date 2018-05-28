@@ -1,4 +1,4 @@
-defmodule Upload.Application do
+defmodule Web.Application do
   @moduledoc false
 
   use Application
@@ -7,10 +7,10 @@ defmodule Upload.Application do
     port = Application.fetch_env!(:upload, :port)
 
     children = [
-      {Ace.HTTP.Service, [{Upload.Router, []}, [port: port, cleartext: true]]}
+      {Ace.HTTP.Service, [{Web.Router, []}, [port: port, cleartext: true]]}
     ]
 
-    opts = [strategy: :one_for_one, name: Upload.Supervisor]
+    opts = [strategy: :one_for_one, name: Web.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end

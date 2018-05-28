@@ -1,8 +1,8 @@
-defmodule Imageer.Mixfile do
+defmodule Web.Mixfile do
   use Mix.Project
   def project do
     [
-      app: :upload,
+      app: :web,
       version: "0.0.1",
       elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -15,22 +15,21 @@ defmodule Imageer.Mixfile do
       deps_path: "../../deps",
       lockfile: "../../mix.lock",
       deps: deps(),
-
     ]
   end
   def application do
     [
-      mod: {Upload.Application, []},
-      extra_applications: [:riak_core,:logger]
+      mod: {Web.Application, []},
+      extra_applications: [:logger]
     ]
   end
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
   defp deps do
     [
-{:ace                  , "~> 0.16"  } ,
-      {:raxx                 , "~> 0.15"  } ,
-
+      {:ace     , "~> 0.16"  } ,
+      {:raxx    , "~> 0.15"  } ,
+      {:gen_state_machine    , "~> 2.0"   } ,
     ]
   end
   defp aliases do

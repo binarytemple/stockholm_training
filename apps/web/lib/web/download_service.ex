@@ -1,4 +1,4 @@
-defmodule Upload.DownloadService do
+defmodule Web.DownloadService do
   @moduledoc false
 
   use Raxx.Server
@@ -7,7 +7,7 @@ defmodule Upload.DownloadService do
   require Logger
 
   alias Raxx.Request
-  alias Upload.FileReader
+  alias Web.FileReader
 
   # Handle request headers
   @impl true

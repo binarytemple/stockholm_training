@@ -1,4 +1,4 @@
-defmodule Imageer.Util do
+defmodule Web.Util do
     import Logger
     
     def acumulator(payload, accumulator, size) do

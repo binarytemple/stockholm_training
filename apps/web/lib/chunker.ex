@@ -1,4 +1,4 @@
-defmodule Imageer.Chunker do
+defmodule Web.Chunker do
   use GenStateMachine
   import Logger
   alias __MODULE__

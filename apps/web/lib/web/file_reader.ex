@@ -1,4 +1,4 @@
-defmodule Upload.FileReader do
+defmodule Web.FileReader do
   @moduledoc false
 
   defstruct [:file]

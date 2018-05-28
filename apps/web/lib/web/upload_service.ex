@@ -1,4 +1,4 @@
-defmodule Upload.UploadService do
+defmodule Web.UploadService do
   @moduledoc false
 
   use Raxx.Server
@@ -7,9 +7,9 @@ defmodule Upload.UploadService do
   require Logger
 
   alias Raxx.Request
-  alias Upload.FileWriter
+  alias Web.FileWriter
 
-  alias Imageer.Chunker
+  alias Web.Chunker
 
   # Handle request headers
   #
@@ -58,9 +58,14 @@ defmodule Upload.UploadService do
     Logger.debug(fn -> "Upload completed" end)
     # We don't really need to close the file because the process will die anyway.
     #FileWriter.close(file_writer)
-    Chunker.flush_and_terminate chunker
     # We're finally returning the response. We don't need to return state here anymore
     # because no callback related to current request will be ever called again.
-    response(:no_content)
+    case Chunker.flush_and_terminate(chunker) do
+      :ok ->
+        response(:no_content)
+
+      :fail ->
+        response(:internal_server_error)
+    end
   end
 end
