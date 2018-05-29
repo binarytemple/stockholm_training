@@ -20,7 +20,7 @@ defmodule Web.Mixfile do
   def application do
     [
       mod: {Web.Application, []},
-      extra_applications: [:logger_lager_backend]
+      extra_applications: [:lager, :logger_lager_backend]
     ]
   end
   defp elixirc_paths(:test), do: ["lib", "test/support"]

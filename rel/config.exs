@@ -78,13 +78,13 @@ end
 
 release :storix do
   set version: current_version(:storix)
-  set applications: [
-    :runtime_tools,
+   set applications: [
+  #   :lager,
+     :runtime_tools,
     :cuttlefish,
-    :lager,
-    :logger_lager_backend,
-    :logger,
-  ]
+  #   :logger_lager_backend,
+  #   :logger,
+   ]
 
 
 end
