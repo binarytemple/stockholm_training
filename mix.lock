@@ -9,7 +9,7 @@
   "cuttlefish": {:git, "git://github.com/bryanhuntesl/cuttlefish.git", "fe9acb376dc28a6df22ae789a319bec6dd780fff", [branch: "develop"]},
   "distillery": {:hex, :distillery, "1.5.2", "eec18b2d37b55b0bcb670cf2bcf64228ed38ce8b046bb30a9b636a6f5a4c0080", [:mix], [], "hexpm"},
   "edown": {:hex, :edown, "0.8.1", "7333b6f6b7bbc736c263e9ceb8261667d7c8f7d92e251829f1a9fe8f24e7b694", [:rebar3], [], "hexpm"},
-  "eleveldb": {:git, "git://github.com/basho/eleveldb.git", "c565e46c911f5b73636c925282c353ff76dfe4a0", [tag: "2.0.35"]},
+  "eleveldb": {:git, "git@github.com:freeakdb/eleveldb.git", "3c8b26e99d883260d9ac922c0381ccaf41644025", [tag: "2.2.19"]},
   "exometer_core": {:hex, :basho_exometer_core, "1.0.2", "dc4bc9b0b47edee0c053b16ac5b9c692e662c7e1513ffc96f4d928bc3328d65f", [:rebar3], [{:folsom, "~>0.8.3", [hex: :folsom, repo: "hexpm", optional: false]}, {:lager, "~>3.2.0", [hex: :lager, repo: "hexpm", optional: false]}, {:parse_trans, "~>2.9.0", [hex: :parse_trans, repo: "hexpm", optional: false]}, {:setup, "~>1.7.0", [hex: :setup, repo: "hexpm", optional: false]}], "hexpm"},
   "folsom": {:git, "git@github.com:freeakdb/folsom.git", "f017ae4845e8c51df2f24316f314827c6da31dab", [tag: "0.8.2p1"]},
   "gen_fsm_compat": {:git, "https://github.com/freeakdb/gen_fsm_compat.git", "29a42abc201bac8f9534a126a76c87bfeed87924", [branch: "elixir1.6-r20"]},
@@ -27,7 +27,7 @@
   "poolboy": {:hex, :basho_poolboy, "0.8.2", "ad5524bf4b8d30eee0e5386847b74dad739bb6ae1893f3af10f54d427acc96e4", [:rebar3], [], "hexpm"},
   "raxx": {:hex, :raxx, "0.15.4", "62e4a487e55e9469d1ba2d5de590672167f51eaac310f027f3f871018cb6a9fc", [:mix], [{:cookie, "~> 0.1.0", [hex: :cookie, repo: "hexpm", optional: false]}], "hexpm"},
   "riak_core": {:git, "git@github.com:freeakdb/riak_core.git", "5ce029026c074b1f855d2ef6eb3fd08b5572c3bb", [branch: "riak_core_lite_training_bh"]},
-  "riak_ensemble": {:git, "https://github.com/freeakdb/riak_ensemble.git", "83c2edaafe2b66ea3d2fee8b503535832cdd6332", [tag: "2.1.9-rebar3-otp20-elixir-1.6"]},
+  "riak_ensemble": {:hex, :riak_ensemble_ng, "2.4.1", "ff826999deddaf38be726529ac5089b7eac0d1beea0e88db2fb3f3a25d045067", [:rebar3], [{:gen_fsm_compat, "~>0.2.0", [hex: :gen_fsm_compat, repo: "hexpm", optional: false]}, {:lager, "~>3.2.1", [hex: :lager, repo: "hexpm", optional: false]}], "hexpm"},
   "riak_sysmon": {:git, "https://github.com/freeakdb/riak_sysmon.git", "3968730d6d43636d0f82e21d0fd54a77ce49196f", [branch: "develop-2.2"]},
   "setup": {:hex, :setup, "1.7.0", "15df8e57c6df9755e22bfb1aef0c640bd97e9889396fdfb2a85a5536a9043674", [:rebar3], [], "hexpm"},
 }

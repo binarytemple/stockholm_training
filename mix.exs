@@ -30,11 +30,9 @@ defmodule Storix.Mixfile do
   defp deps do
     [
       {:folsom,  [ git: "git@github.com:freeakdb/folsom.git", tag: "0.8.2p1", manager: :rebar3, override: true]},
-      #{:riak_core, git: "git@github.com:freeakdb/riak_core.git", branch: "riak_core_lite_ng"},
       {:riak_core, git: "git@github.com:freeakdb/riak_core.git", branch: "riak_core_lite_training_bh"},
  #     {:leveled, [ git: "git@github.com:freeakdb/leveled.git", tag: "stockholm_training_bh", manager: :rebar3, override: true]},
       {:bear,  [ git: "git@github.com:freeakdb/bear.git", tag: "0.8.2p1-rebar3-otp20", manager: :rebar3, override: true]},
- #     {:eleveldb,  [ git: "git@github.com:freeakdb/eleveldb.git", tag: "2.2.19", manager: :rebar3, override: true]},
       {:lager,  [ git: "git://github.com/erlang-lager/lager", tag: "3.5.2", manager: :rebar3, override: true]},
       {:goldrush,  [ git: "git@github.com:freeakdb/goldrush.git", tag: "0.1.9",manager: :rebar3,  override: true]},
       {:cuttlefish,  [ git: "git://github.com/bryanhuntesl/cuttlefish.git", branch: "develop",  override: true]},
@@ -42,8 +40,6 @@ defmodule Storix.Mixfile do
       {:gen_fsm_compat,  [ git: "https://github.com/freeakdb/gen_fsm_compat.git", branch: "elixir1.6-r20", manager: :rebar, override: true ]},
       {:clique,  [ git: "https://github.com/freeakdb/clique.git", branch: "develop-2.2", manager: :rebar, override: true ]},
       {:riak_sysmon,  [ git: "https://github.com/freeakdb/riak_sysmon.git", branch: "develop-2.2", manager: :rebar, override: true ]},
-      {:riak_ensemble,  [ git: "https://github.com/freeakdb/riak_ensemble.git", tag: "2.1.9-rebar3-otp20-elixir-1.6", manager: :rebar, override: true ]},
-      # {:logger_lager_backend,  [ git: "git@github.com:freeakdb/logger_lager_backend.git", tag: "0.1.0", manager: :rebar, override: true, app: false]},
       {:logger_lager_backend, "~> 0.1.0"},
       {:distillery, "~>1.5.2"},
       {:gen_state_machine, "~> 2.0"},
