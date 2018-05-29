@@ -44,6 +44,9 @@ dev-console3:
 devrel-start:
 	for d in $(BASEDIR)/_build/dev{1,2,3}; do $$d/rel/$(APPNAME)/bin/$(APPNAME) start; done
 
+devrel-stop:
+	for d in $(BASEDIR)/_build/dev{1,2,3}; do $$d/rel/$(APPNAME)/bin/$(APPNAME) stop; done
+
 devrel-join:
 	for d in $(BASEDIR)/_build/dev{2,3}; do $$d/rel/$(APPNAME)/bin/$(APPNAME)-admin cluster join dev1@127.0.0.1; done
 
