@@ -10,11 +10,9 @@ defmodule Web.UploadService do
   alias Web.FileWriter
 
   alias Web.Chunker
+  alias Web.Chunker.State
 
-  @enforce_keys [:id, :chunk_size]
-  defstruct [:id, :chunk_size, callback: &UploadService.example_callback/2, acc: "", counter: 0]
-
-  def example_callback(data, %Web.UploadService {acc: acc} = state) when is_binary(acc) do
+  def example_callback(data, %State {acc: acc} = state) when is_binary(acc) do
     msg = ~s"""
     -dumping-
     id        : #{inspect(state.id)}
@@ -23,11 +21,11 @@ defmodule Web.UploadService do
     acc_size  : #{:erlang.size(acc)}
     acc       : #{inspect(acc)}
     """
-    Logger.warn(msg)
+    case state do
+      _ -> Logger.warn("#{inspect(state)}")
+    end
+
   end
-
-
-
 
   # Handle request headers
   #
