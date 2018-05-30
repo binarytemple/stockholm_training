@@ -12,7 +12,7 @@ defmodule Web.UploadService do
   alias Web.Chunker
   alias Web.Chunker.State
 
-  def example_callback(data, %State {acc: acc} = state) when is_binary(acc) do
+  def upload_callback(data, %State {acc: acc} = state) when is_binary(acc) do
     msg = ~s"""
     -dumping-
     id        : #{inspect(state.id)}
@@ -22,7 +22,11 @@ defmodule Web.UploadService do
     acc       : #{inspect(acc)}
     """
     case state do
-      _ -> Logger.warn("#{inspect(state)}")
+      %State{id: id, counter: counter, acc: acc}  ->
+        Logger.warn("#{id}:#{counter}#{acc}")
+
+
+
     end
 
   end
@@ -37,12 +41,10 @@ defmodule Web.UploadService do
   @impl true
   def handle_head(%Request{method: :PUT, body: true, path: ["uploads", name]}, _state) do
     Logger.debug("Initiating upload of #{name}")
-    file_writer = FileWriter.new(name)
-
     Process.flag(:trap_exit,true)
     chunk_size=Application.get_all_env(:web)[:download_chunk_size]
     Logger.warn("chunk_size = #{chunk_size}")
-    chunker=Chunker.create("#{name}",chunk_size,&example_callback/2)
+    chunker=Chunker.create("#{name}",10,&upload_callback/2)
     # Empty list here means that we're not returning anything to a client yet. The state
     # is the file handler used later to write chunks of data.
     {[], %{chunker: chunker}}
@@ -60,6 +62,10 @@ defmodule Web.UploadService do
   def handle_data(chunk, %{chunker: chunker} = state) do
     Logger.warn(fn -> "Received #{byte_size(chunk)} byte chunk of data" end)
     #FileWriter.write_chunk(file_writer, chunk)
+
+    Logger.warn("incoming = #{inspect(chunk) }")
+
+
     Chunker.send_data(chunker,chunk)
     # Empty list here means that we're not returning anything to the client yet. Let's
     # write each chunk to a file opened in `handle_head/2` and return the state as is.
