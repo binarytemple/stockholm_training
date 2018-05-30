@@ -7,3 +7,4 @@ erl_crash.dump
 log*
 data*
 ring_data*
+uploads

@@ -11,6 +11,24 @@ defmodule Web.UploadService do
 
   alias Web.Chunker
 
+  @enforce_keys [:id, :chunk_size]
+  defstruct [:id, :chunk_size, callback: &UploadService.example_callback/2, acc: "", counter: 0]
+
+  def example_callback(data, %Web.UploadService {acc: acc} = state) when is_binary(acc) do
+    msg = ~s"""
+    -dumping-
+    id        : #{inspect(state.id)}
+    counter   : #{state.counter}
+    chunk_size: #{state.chunk_size}
+    acc_size  : #{:erlang.size(acc)}
+    acc       : #{inspect(acc)}
+    """
+    Logger.warn(msg)
+  end
+
+
+
+
   # Handle request headers
   #
   # This callbacks receives a `Raxx.Request` struct which contains all the headers, path
@@ -26,7 +44,7 @@ defmodule Web.UploadService do
     Process.flag(:trap_exit,true)
     chunk_size=Application.get_all_env(:web)[:download_chunk_size]
     Logger.warn("chunk_size = #{chunk_size}")
-    chunker=Chunker.create("#{name}",chunk_size,&Chunker.State.example_callback/2)
+    chunker=Chunker.create("#{name}",chunk_size,&example_callback/2)
     # Empty list here means that we're not returning anything to a client yet. The state
     # is the file handler used later to write chunks of data.
     {[], %{chunker: chunker}}

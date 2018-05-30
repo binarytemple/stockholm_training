@@ -20,7 +20,7 @@ defmodule Web.Chunker do
       acc       : #{inspect(acc)}
       """
 
-      debug(msg)
+      Logger.warn(msg)
     end
   end
 
