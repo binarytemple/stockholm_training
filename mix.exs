@@ -20,6 +20,7 @@ defmodule Storix.MixProject do
       {:lager,  [ git: "git://github.com/erlang-lager/lager", tag: "3.5.2", manager: :rebar3, override: true]},
       {:logger_lager_backend , "~> 0.1.0" } ,
       {:distillery           , "~>1.5.2" , runtime: false } ,
+      {:exsync, "~> 0.2.0", only: :dev }
     ]
   end
 end

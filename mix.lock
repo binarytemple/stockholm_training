@@ -11,6 +11,8 @@
   "edown": {:hex, :edown, "0.8.1", "7333b6f6b7bbc736c263e9ceb8261667d7c8f7d92e251829f1a9fe8f24e7b694", [:rebar3], [], "hexpm"},
   "eleveldb": {:git, "git://github.com/basho/eleveldb.git", "c565e46c911f5b73636c925282c353ff76dfe4a0", [tag: "2.0.35"]},
   "exometer_core": {:hex, :basho_exometer_core, "1.0.2", "dc4bc9b0b47edee0c053b16ac5b9c692e662c7e1513ffc96f4d928bc3328d65f", [:rebar3], [{:folsom, "~>0.8.3", [hex: :folsom, repo: "hexpm", optional: false]}, {:lager, "~>3.2.0", [hex: :lager, repo: "hexpm", optional: false]}, {:parse_trans, "~>2.9.0", [hex: :parse_trans, repo: "hexpm", optional: false]}, {:setup, "~>1.7.0", [hex: :setup, repo: "hexpm", optional: false]}], "hexpm"},
+  "exsync": {:hex, :exsync, "0.2.3", "a1ac11b4bd3808706003dbe587902101fcc1387d9fc55e8b10972f13a563dd15", [:mix], [{:file_system, "~> 0.2", [hex: :file_system, repo: "hexpm", optional: false]}], "hexpm"},
+  "file_system": {:hex, :file_system, "0.2.5", "a3060f063b116daf56c044c273f65202e36f75ec42e678dc10653056d3366054", [:mix], [], "hexpm"},
   "folsom": {:git, "git@github.com:freeakdb/folsom.git", "f017ae4845e8c51df2f24316f314827c6da31dab", [tag: "0.8.2p1"]},
   "gen_fsm_compat": {:git, "https://github.com/freeakdb/gen_fsm_compat.git", "29a42abc201bac8f9534a126a76c87bfeed87924", [branch: "elixir1.6-r20"]},
   "gen_state_machine": {:hex, :gen_state_machine, "2.0.2", "52abcba0981a058940c2a9b33b704e126d808418a6e85d45fa466d7450a90381", [:mix], [], "hexpm"},
