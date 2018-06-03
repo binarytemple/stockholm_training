@@ -23,10 +23,7 @@ defmodule Web.UploadService do
     """
     case state do
       %State{id: id, counter: counter, acc: acc}  ->
-        Logger.warn("#{id}:#{counter}#{acc}")
-
-
-
+        Logger.warn("#{id}:#{counter}#{data}")
     end
 
   end

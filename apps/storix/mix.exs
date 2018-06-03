@@ -1,5 +1,7 @@
 defmodule Storix.Mixfile do
   use Mix.Project
+  require Logger
+
 
   def project do
     [app: :storix,
@@ -12,11 +14,21 @@ defmodule Storix.Mixfile do
   end
 
   def application do
-    [
+    base = [
       extra_applications: [:lager, :logger_lager_backend],
-      applications: [:riak_core ],
-      mod: {Storix, [env: Mix.env]}
     ]
+
+    all  = base ++ [
+      # applications: [:riak_core ],
+      mod: {Storix, %{env: Mix.env}}
+    ]
+
+    case Mix.env do
+      :test -> base
+      :dev -> base
+      _  -> all
+    end
+
   end
 
   defp deps do

@@ -8,6 +8,13 @@ use Mix.Config
 # configure all applications here, we prefer to delegate
 # back to each application for organization purposes.
 
+config :lager,
+  colored: true,
+  error_logger_hwm: 5000
 
+config :logger,
+  backends: [LoggerLagerBackend],
+  handle_otp_reports: false,
+  level: :debug
 
 import_config "../apps/*/config/config.exs"
