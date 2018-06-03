@@ -6,7 +6,7 @@ defmodule Storix.Supervisor do
     Supervisor.start_link(__MODULE__, [], [name: :storix_sup])
   end
 
-  def init(args) do
+  def init(_args) do
 
     children = [
       supervisor(Storix.WriteFsmSupervisor, []),
