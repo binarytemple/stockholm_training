@@ -19,7 +19,16 @@ defmodule Storix.LeveledBackend do
 # @inkt_tomb :tomb
 # @cache_type :skpl
 
-def new( _opts=%{path: path} ) do
+@typedoc """
+      Type that represents Examples struct with :first as integer and :last as integer.
+ """
+@type state :: %{bookie: any(), base_path: list() }
+
+def new( opts=%{path: path} ) when is_binary(path) do
+    new(%{opts| path: :erlang.binary_to_list(path) })
+end
+
+def new( _opts=%{path: path} ) when is_list(path) do
     ledger_cache_size =  2000
     journal_size = 500000000
     sync_strategy = :none
@@ -79,6 +88,17 @@ def close(state = %{bookie: bookie}) do
     {r, state}
 end
 
+
+@type foldl_fun :: (
+    {{bucket:: binary(), key :: binary()}, any()} -> list()
+)
+
+ @spec foldl(
+     fun  :: foldl_fun,
+         accumulator  :: list(),
+         state :: state()) :: {
+             acc_out :: list(), state :: map()
+         }
 def foldl(fun, acc0, state=%{bookie: bookie}) do
     fold_objects_fun = fn(b, k, v, acc) -> fun.({{b, k}, v}, acc) end
     {:async, fold_fn} = :leveled_bookie.book_returnfolder(bookie, {:foldobjects_allkeys,
