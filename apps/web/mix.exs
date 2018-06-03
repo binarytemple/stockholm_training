@@ -17,12 +17,23 @@ defmodule Web.Mixfile do
       deps: deps(),
     ]
   end
+
   def application do
-    [
-      mod: {Web.Application, []},
-      extra_applications: [:lager, :logger_lager_backend]
+    base = [
+      extra_applications: [:lager, :logger_lager_backend],
     ]
+    all  = base ++ [
+        mod: {Web.Application, []},
+    ]
+
+    case Mix.env do
+      :test -> base
+      :dev -> base
+      _  -> all
+    end
+
   end
+
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
   defp deps do

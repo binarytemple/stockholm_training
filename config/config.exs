@@ -1,13 +1,26 @@
-# This file is responsible for configuring your application
-# and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
+alias :erlang, as: E
 
-# By default, the umbrella project as well as each child
-# application will require this configuration file, ensuring
-# they all use the same configuration. While one could
-# configure all applications here, we prefer to delegate
-# back to each application for organization purposes.
+config :lager,
+  colored: true,
+  error_logger_hwm: 5000
 
+config :logger,
+  backends: [LoggerLagerBackend],
+  handle_otp_reports: false,
+  level: :debug
 
+config :riak_core,
+  node: :erlang.node(),
+  schema_dirs: ['priv'],
+  ring_creation_size: 16,
+  vnode_inactivity_timeout: 10000
 
-import_config "../apps/*/config/config.exs"
+config :sasl,
+  errlog_type: :error
+
+config :setup,
+  log_dir: E.binary_to_list("data/#{E.atom_to_binary(Mix.env,:utf8)}/logs"),
+  data_dir: E.binary_to_list("data/#{E.atom_to_binary(Mix.env,:utf8)}/data")
+
+import_config "#{Mix.env}.exs"

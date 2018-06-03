@@ -23,10 +23,7 @@ defmodule Web.UploadService do
     """
     case state do
       %State{id: id, counter: counter, acc: acc}  ->
-        Logger.warn("#{id}:#{counter}#{acc}")
-
-
-
+        Logger.warn("#{id}:#{counter}#{data}")
     end
 
   end
@@ -61,11 +58,7 @@ defmodule Web.UploadService do
   @impl true
   def handle_data(chunk, %{chunker: chunker} = state) do
     Logger.warn(fn -> "Received #{byte_size(chunk)} byte chunk of data" end)
-    #FileWriter.write_chunk(file_writer, chunk)
-
     Logger.warn("incoming = #{inspect(chunk) }")
-
-
     Chunker.send_data(chunker,chunk)
     # Empty list here means that we're not returning anything to the client yet. Let's
     # write each chunk to a file opened in `handle_head/2` and return the state as is.
@@ -77,7 +70,7 @@ defmodule Web.UploadService do
   # This callback receives request "trailers", which apparently are HTTP headers sent
   # at the end of the request. I had no idea one could do that.
   @impl true
-  def handle_tail(_trailers,%{chunker: chunker} = state) do
+  def handle_tail(_trailers,%{chunker: chunker} = _state) do
     Logger.warn(fn -> "Upload completed" end)
     # We don't really need to close the file because the process will die anyway.
     #FileWriter.close(file_writer)
@@ -86,7 +79,6 @@ defmodule Web.UploadService do
     case Chunker.flush_and_terminate(chunker) do
       :ok ->
         response(:no_content)
-
       :fail ->
         response(:internal_server_error)
     end
