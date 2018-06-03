@@ -7,6 +7,7 @@ defmodule Storix.Supervisor do
   end
 
   def init(_args) do
+
     children = [
       supervisor(Storix.WriteFsmSupervisor, []),
       supervisor(Storix.GetFsmSupervisor, []),

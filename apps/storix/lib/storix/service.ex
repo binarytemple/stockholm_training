@@ -69,11 +69,6 @@ defmodule Storix.Service do
     end
   end
 
-  def ring_status() do
-    {:ok, ring} = :riak_core_ring_manager.get_my_ring
-    :riak_core_ring.pretty_print(ring, [:legend])
-  end
-
   def keys do
     req_id = Storix.CoverageFsmSupervisor.start_fsm(:keys)
     wait_result(req_id)

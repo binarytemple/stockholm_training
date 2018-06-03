@@ -22,26 +22,53 @@ use Mix.Releases.Config,
 # and environment configuration is called a profile
 
 environment :dev do
-  # If you are running Phoenix, you should make sure that
-  # server: true is set and the code reloader is disabled,
-  # even in dev mode.
-  # It is recommended that you build with MIX_ENV=prod and pass
-  # the --env flag to Distillery explicitly if you want to use
-  # dev mode.
-  #
   set overlays: [
     {:mkdir, "priv"},
     {:copy, "priv/riak_core.schema", "priv/riak_core.schema"}
   ]
+  set cookie: "riak"
   set dev_mode: true
   set include_erts: false
-  set cookie: :"Tl6JH/3yUb)6c=Z{ot(OTK`Q>)_`CPl0f!GKS*AJ,j7NmrB~ggssv5JU2/*&`G3%"
+end
+
+environment :dev1 do
+  set overlays: [
+    {:mkdir, "priv"},
+    {:copy, "priv/riak_core.schema", "priv/riak_core.schema"}
+  ]
+  set cookie: "riak"
+  set dev_mode: true
+  set include_erts: false
+end
+
+environment :dev2 do
+  set overlays: [
+    {:mkdir, "priv"},
+    {:copy, "priv/riak_core.schema", "priv/riak_core.schema"}
+  ]
+  set cookie: "riak"
+  set dev_mode: true
+  set include_erts: false
+end
+
+environment :dev3 do
+  set overlays: [
+    {:mkdir, "priv"},
+    {:copy, "priv/riak_core.schema", "priv/riak_core.schema"}
+  ]
+  set cookie: "riak"
+  set dev_mode: true
+  set include_erts: false
 end
 
 environment :prod do
+  set overlays: [
+    {:mkdir, "priv"},
+    {:copy, "priv/riak_core.schema", "priv/riak_core.schema"}
+  ]
+  set cookie: "riak"
   set include_erts: true
   set include_src: false
-  set cookie: :"Mxdo/Uzg2`I9p~owVyq,(c6,SI_HV,vMaRVT:=Y&`e{W{15M?<d,.n^xrpodvC(2"
 end
 
 # You may define one or more releases in this file.
@@ -51,9 +78,13 @@ end
 
 release :storix do
   set version: current_version(:storix)
-  set applications: [
-    :runtime_tools,
-    :cuttlefish
-  ]
-end
+   set applications: [
+  #   :lager,
+     :runtime_tools,
+    :cuttlefish,
+  #   :logger_lager_backend,
+  #   :logger,
+   ]
 
+
+end

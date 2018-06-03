@@ -14,7 +14,6 @@ defmodule Storix.CoverageFsm do
       [req_id, from, what, @timeout]) #args
   end
 
-
   def init(_from, [req_id, from, what, timeout] = args) do
     Logger.debug ">>> [CoverageFsm.init]"
     {
@@ -25,6 +24,7 @@ defmodule Storix.CoverageFsm do
       Storix.Service,
       Storix.VNode_master,
       timeout,
+      :riak_core_coverage_plan,
       %{from: from, req_id: req_id, args: args}
     }
   end
