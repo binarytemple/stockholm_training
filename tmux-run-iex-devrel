@@ -2,9 +2,15 @@
 
 hosts=(dev1 dev2 dev3)
 
-tmux new-window 
+mix deps.get
+
+tmux new-window
 
 for i in "${hosts[@]}"; do
-tmux split-window -h "MIX_ENV=$i iex -S mix" 
+MIX_ENV=$i mix compile 
+done
+
+for i in "${hosts[@]}"; do
+tmux split-window -h "MIX_ENV=$i iex -S mix"
 tmux select-layout even-vertical > /dev/null
 done
